@@ -9,6 +9,7 @@ import {
   Img,
   staticFile,
 } from "remotion";
+import { Audio } from "@remotion/media";
 import { loadFont } from "@remotion/google-fonts/Inter";
 import { loadFont as loadSerif } from "@remotion/google-fonts/DMSerifDisplay";
 import { Background } from "./Background";
@@ -925,6 +926,133 @@ export const CaseMatePromo: React.FC = () => {
       <Sequence from={165} durationInFrames={120} premountFor={15}><PhoneDemoScene /></Sequence>
       <Sequence from={285} durationInFrames={75} premountFor={15}><FeaturesScene /></Sequence>
       <Sequence from={360} durationInFrames={90} premountFor={15}><CTAScene /></Sequence>
+
+      {/* ── Background music — Innerbloom, low volume with fade in/out ── */}
+      <Audio
+        src={staticFile("innerbloom.mp3")}
+        volume={(f) => {
+          const fadeIn = interpolate(f, [0, 30], [0, 0.12], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+          const fadeOut = interpolate(f, [420, 450], [0.12, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+          return Math.min(fadeIn, fadeOut);
+        }}
+      />
+
+      {/* ── SFX: Impact on $300 reveal ── */}
+      <Sequence from={0} durationInFrames={30}>
+        <Audio src={staticFile("impact.wav")} volume={0.7} />
+      </Sequence>
+
+      {/* ── SFX: Pop on "Can't afford" text ── */}
+      <Sequence from={12} durationInFrames={15}>
+        <Audio src={staticFile("pop.wav")} volume={0.5} />
+      </Sequence>
+
+      {/* ── SFX: Whoosh into Problem scene ── */}
+      <Sequence from={58} durationInFrames={15}>
+        <Audio src={staticFile("whoosh.wav")} volume={0.5} />
+      </Sequence>
+
+      {/* ── SFX: Swipe on problem cards fanning in ── */}
+      <Sequence from={64} durationInFrames={10}>
+        <Audio src={staticFile("swipe.wav")} volume={0.45} />
+      </Sequence>
+      <Sequence from={70} durationInFrames={10}>
+        <Audio src={staticFile("swipe.wav")} volume={0.4} />
+      </Sequence>
+      <Sequence from={76} durationInFrames={10}>
+        <Audio src={staticFile("swipe.wav")} volume={0.35} />
+      </Sequence>
+
+      {/* ── SFX: Pop on "There's a better way" pill ── */}
+      <Sequence from={90} durationInFrames={15}>
+        <Audio src={staticFile("pop.wav")} volume={0.5} />
+      </Sequence>
+
+      {/* ── SFX: Whoosh + Impact on logo burst ── */}
+      <Sequence from={118} durationInFrames={15}>
+        <Audio src={staticFile("whoosh.wav")} volume={0.55} />
+      </Sequence>
+      <Sequence from={120} durationInFrames={30}>
+        <Audio src={staticFile("impact.wav")} volume={0.8} />
+      </Sequence>
+      <Sequence from={122} durationInFrames={20}>
+        <Audio src={staticFile("shimmer.wav")} volume={0.35} />
+      </Sequence>
+
+      {/* ── SFX: Whoosh into phone demo ── */}
+      <Sequence from={163} durationInFrames={15}>
+        <Audio src={staticFile("whoosh.wav")} volume={0.45} />
+      </Sequence>
+
+      {/* ── SFX: Pop on user message ── */}
+      <Sequence from={180} durationInFrames={15}>
+        <Audio src={staticFile("pop.wav")} volume={0.35} />
+      </Sequence>
+
+      {/* ── SFX: Shimmer on AI response ── */}
+      <Sequence from={207} durationInFrames={20}>
+        <Audio src={staticFile("shimmer.wav")} volume={0.3} />
+      </Sequence>
+
+      {/* ── SFX: Pop on statute citation ── */}
+      <Sequence from={220} durationInFrames={15}>
+        <Audio src={staticFile("pop.wav")} volume={0.4} />
+      </Sequence>
+
+      {/* ── SFX: Pop on $6,600 counter ── */}
+      <Sequence from={230} durationInFrames={15}>
+        <Audio src={staticFile("pop.wav")} volume={0.45} />
+      </Sequence>
+
+      {/* ── SFX: Shimmer on floating badges ── */}
+      <Sequence from={215} durationInFrames={15}>
+        <Audio src={staticFile("shimmer.wav")} volume={0.25} />
+      </Sequence>
+      <Sequence from={227} durationInFrames={15}>
+        <Audio src={staticFile("shimmer.wav")} volume={0.25} />
+      </Sequence>
+      <Sequence from={239} durationInFrames={15}>
+        <Audio src={staticFile("shimmer.wav")} volume={0.25} />
+      </Sequence>
+
+      {/* ── SFX: Whoosh into features ── */}
+      <Sequence from={283} durationInFrames={15}>
+        <Audio src={staticFile("whoosh.wav")} volume={0.45} />
+      </Sequence>
+
+      {/* ── SFX: Pop on each feature card ── */}
+      <Sequence from={289} durationInFrames={10}>
+        <Audio src={staticFile("pop.wav")} volume={0.35} />
+      </Sequence>
+      <Sequence from={293} durationInFrames={10}>
+        <Audio src={staticFile("pop.wav")} volume={0.35} />
+      </Sequence>
+      <Sequence from={297} durationInFrames={10}>
+        <Audio src={staticFile("pop.wav")} volume={0.35} />
+      </Sequence>
+      <Sequence from={301} durationInFrames={10}>
+        <Audio src={staticFile("pop.wav")} volume={0.35} />
+      </Sequence>
+
+      {/* ── SFX: Whoosh into CTA ── */}
+      <Sequence from={358} durationInFrames={15}>
+        <Audio src={staticFile("whoosh.wav")} volume={0.5} />
+      </Sequence>
+
+      {/* ── SFX: Impact on CTA logo ── */}
+      <Sequence from={360} durationInFrames={25}>
+        <Audio src={staticFile("impact.wav")} volume={0.6} />
+      </Sequence>
+
+      {/* ── SFX: Shimmer on CTA button ── */}
+      <Sequence from={376} durationInFrames={20}>
+        <Audio src={staticFile("shimmer.wav")} volume={0.4} />
+      </Sequence>
+
+      {/* ── SFX: Pop on trust badges ── */}
+      <Sequence from={384} durationInFrames={15}>
+        <Audio src={staticFile("pop.wav")} volume={0.3} />
+      </Sequence>
     </AbsoluteFill>
   );
 };
