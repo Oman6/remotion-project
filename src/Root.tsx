@@ -3,10 +3,21 @@ import { HelloWorld, myCompSchema } from "./HelloWorld";
 import { Logo, myCompSchema2 } from "./HelloWorld/Logo";
 import { FailedEval } from "./FailedEval";
 import { CaseMatePromo } from "./CaseMate";
+import { CaseMatePromo2 } from "./CaseMate2";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      {/* CaseMate Promo 2 — "You Just Got Served" (1080×1920, 15s @ 30fps) */}
+      <Composition
+        id="CaseMatePromo2"
+        component={CaseMatePromo2}
+        durationInFrames={450}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+
       {/* CaseMate Promo — Instagram Reel (1080×1920, 15s @ 30fps) */}
       <Composition
         id="CaseMatePromo"
